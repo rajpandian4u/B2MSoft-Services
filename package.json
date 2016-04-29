@@ -1,0 +1,44 @@
+{
+  "name": "package-name",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Rajesh Pandian <rajesh.pandian@live.com>",
+  "description": "Services for B2MSoft",
+  "contributors": [
+    {
+      "name": "Rajesh Pandian",
+      "email": "rajesh.pandian@live.com"
+    }
+  ],
+  "bin": {
+    "package-name": "./bin/package-name"
+  },
+  "scripts": {
+    "start": "node ./bin/package-name",
+    "test": "vows --spec --isolate",
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app"
+  },
+  "main": "./lib/package-name",
+  "repository": {
+    "type": "git",
+    "url": "the url of the package"
+  },
+  "keywords": [],
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect-domain": "^0.5.0",
+    "express": "^4.13.4",
+    "method-override": "^2.3.5",
+    "nconf": "^0.8.4",
+    "node-rest-client": "^1.8.0",
+    "winston": "^2.2.0"
+  },
+  "analyze": false,
+  "devDependencies": {},
+  "bundledDependencies": [],
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
