@@ -11,16 +11,23 @@ module.exports = function (app) {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
-    app.use(connectDomain());
+    //app.use(connectDomain());
 
-    var b2mTestService = require('./src/service/B2MTestService');
+    var servicesFactory = require('./src/service/ServicesFactory');
         
     app.use(function (req, res, next) {
         logger.log('Request Received Time:', Date.now());
         next();
     });
 
-    app.post('/b2m/testApi', b2mTestService.testApi);
+    //Post API's
+    app.post('/api/:version/:resource', servicesFactory.delegateServices);
+
+    //Get API's
+    app.get('/api/:version/:resource/:ids', servicesFactory.delegateServices);
+    app.get('/api/:version/:resource', servicesFactory.delegateServices);
+    app.get('/api', servicesFactory.getServices);
+
     
     //Middleware to Handle Application Error
     app.use(errorHandler);

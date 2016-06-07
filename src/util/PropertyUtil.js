@@ -14,14 +14,7 @@ exports.getApplicationProperty = function (key) {
 }
 
 exports.getEnvironmentProperty = function (key) {
-    var env;
-    if (process.env.ENV) {
-        env = process.env.ENV;
-    } else {
-        env = 'LOCAL';
-    }
-
-    return appNconf.get(key + '_' + env);
+    return appNconf.get(key);
 }
 
 exports.getErrorProperty = function (key) {
